@@ -12,11 +12,15 @@ public class TipCalculator {
         double cost = 0;
         double totalCost = 0;
         while (cost != -1) {
-            System.out.print("Cost of item: ");
+            System.out.print("Cost of item (-1 to end): $");
             cost = scan.nextDouble();
-            totalCost += cost;
+            System.out.print("Number of item: ");
+            int numItem = scan.nextInt();
+            if (cost != -1) {
+                totalCost += cost*numItem;
+            }
         }
-        double tip = totalCost + totalCost*(tipPercent/100.0);
+        double tip = totalCost*(tipPercent/100.0);
         double totalBill = totalCost + tip;
         System.out.println("Total bill (before tip): $" + String.format("%.2f",totalCost));
         System.out.println("Tip Percentage: " + tipPercent + "%");
