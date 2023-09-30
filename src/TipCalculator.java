@@ -2,8 +2,9 @@ import java.util.Random;
 import java.util.Scanner;
 public class TipCalculator {
     public static void main(String[] args) {
+        //INPUT
         Scanner scan = new Scanner(System.in);
-        System.out.println("Welcome");
+        System.out.println("Welcome!");
         System.out.print("Number of people: ");
         int numPeople = scan.nextInt();
         System.out.print("Tip Percentage: ");
@@ -13,9 +14,12 @@ public class TipCalculator {
         while (cost != -1) {
             System.out.print("Cost of item (-1 to end): $");
             cost = scan.nextDouble();
-            totalCost += cost;
+            if (cost != -1) {
+                totalCost += cost;
+            }
         }
         System.out.println("------------------------");
+        //OUTPUT
         double tip = totalCost*(tipPercent/100.0);
         double totalBill = totalCost + tip;
         System.out.println("Total bill (before tip): $" + String.format("%.2f",totalCost));
@@ -25,7 +29,7 @@ public class TipCalculator {
         System.out.println("Cost Per Person (before tip): $" + String.format("%.2f",totalCost/numPeople));
         System.out.println("Tip Per Person: $" + String.format("%.2f",tip/numPeople));
         System.out.println("Cost Per Person: $" + String.format("%.2f",totalBill/numPeople));
-        //FREESTYLE
+        //FREESTYLE (CARD)
         Random random = new Random();
         double balance = random.nextDouble(400);
         System.out.println("------------------------");
